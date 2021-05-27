@@ -6,10 +6,9 @@ RUN		apk add nginx supervisor openrc lighttpd php7-common php7-session php7-icon
 		php7-mcrypt php7-gettext php7-ldap php7-ctype php7-dom
 
 
-RUN mkdir -p /var/lib/phpmyadmin/tmp
-RUN mkdir /usr/share/phpmyadmin
-COPY srcs/phpMyAdmin-5.1.0-all-languages.zip /usr/share/phpmyadmin
-COPY srcs/config.inc.php /usr/share/phpmyadmin
+COPY srcs/lighttpd.conf /etc/lighttpd/lighttpd.conf
+RUN mkdir -p /usr/share/webapps/
+RUN wget -O /usr/share/webapps/phpMyAdmin-5.0.2-all-languages.tar.gz http://files.directadmin.com/services/all/phpMyAdmin/phpMyAdmin-5.0.2-all-languages.tar.gz
 
 COPY srcs/default /etc/nginx/conf.d/default.conf
 COPY srcs/supervisor.conf /etc/supervisord.conf

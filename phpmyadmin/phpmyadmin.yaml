@@ -8,10 +8,6 @@ spec:
   type: LoadBalancer
   ports:
     - protocol: TCP
-      name: http
-      port: 80
-      targetPort: 80
-    - protocol: TCP
       name: phpmyadmin
       port: 5000
       targetPort: 5000
@@ -37,6 +33,5 @@ spec:
         image: phpmyadmin_image
         imagePullPolicy: Never
         ports:
-        - containerPort: 80
         - containerPort: 5000
 

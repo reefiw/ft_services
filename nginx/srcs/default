@@ -8,13 +8,15 @@ server {
 		listen [::]:443 ssl;
 		ssl_certificate /etc/nginx/ssl/cert.csr;
         ssl_certificate_key /etc/nginx/ssl/cert.key;
-
-        location / {
-				try_files $uri $uri/ =404;
-        }
+		root   /www;
+		index   index.html index.htm;
+		error_log /var/log/nginx/n_error.log;
 		location /phpmyadmin/ {
-				proxy_set_header X-Forwarded-Proto https;
-				proxy_set_header Host $host;
 				proxy_pass http://192.168.99.100:5000/;
+				proxy_set_header X-Forwarded-Proto $scheme;
+				proxy_redirect  /index.php  /phpmyadmin/index.php;
+		}
+		location / {
+			try_files $uri $uri/ =404;
 		}
 }

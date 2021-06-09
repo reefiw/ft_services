@@ -1,6 +1,7 @@
 #!/bin/sh
 
 minikube stop
+minikube delete
 minikube start --vm-driver=virtualbox
 minikube addons enable metallb
 eval $(minikube docker-env)

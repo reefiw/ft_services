@@ -13,5 +13,5 @@ RUN mkdir /scripts/
 COPY srcs/start.sh /scripts/start.sh
 RUN chmod 777 /scripts/start.sh
 
-EXPOSE 80 443 22
+EXPOSE 80 443
 CMD /scripts/start.sh

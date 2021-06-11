@@ -1,4 +1,5 @@
-CREATE USER 'adminko' IDENTIFIED BY 'adminko';
+CREATE USER 'phpmyadmin' IDENTIFIED BY 'phpmyadmin';
 CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-GRANT ALL ON wordpress.* TO 'admin'@'localhost' IDENTIFIED BY 'password';
+FLUSH PRIVILEGES;
+GRANT ALL ON wordpress.* TO 'phpmyadmin' IDENTIFIED BY 'phpmyadmin';
 FLUSH PRIVILEGES;

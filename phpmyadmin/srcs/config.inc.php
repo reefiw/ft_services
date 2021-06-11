@@ -38,8 +38,8 @@ $cfg['Servers'][$i]['AllowNoPassword'] = true;
 /* User used to manipulate with storage */
 // $cfg['Servers'][$i]['controlhost'] = '';
 // $cfg['Servers'][$i]['controlport'] = '';
-//  $cfg['Servers'][$i]['controluser'] = 'phpmyadmin';
-//  $cfg['Servers'][$i]['controlpass'] = 'password';
+ $cfg['Servers'][$i]['controluser'] = 'phpmyadmin';
+ $cfg['Servers'][$i]['controlpass'] = 'phpmyadmin';
 
 /* Storage database and tables */
 // $cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';

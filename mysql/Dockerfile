@@ -8,7 +8,6 @@ VOLUME /var/lib/mysql
 RUN mkdir -p run/mysqld
 RUN mkdir -p /run/openrc && touch /run/openrc/softlevel
 RUN chown mysql /run/mysqld/
-COPY srcs/wordpress_db /run/mysql/
 COPY srcs/wordpress.sql /run/mysql/
 COPY srcs/mysql.cnf /etc/my.cnf
 RUN chmod +x /run/mysqld/

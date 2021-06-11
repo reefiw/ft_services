@@ -13,6 +13,8 @@ RUN mkdir -p /var/www/
 RUN mv ./wordpress /var/www/
 COPY srcs/wp-config-sample.php /var/www/wordpress/wp-config.php
 
+RUN chown -R root:root /var/www/wordpress
+RUN chmod 777 /var/www/wordpress
 RUN mkdir -p /run/nginx
 COPY srcs/default /etc/nginx/conf.d/default.conf
 

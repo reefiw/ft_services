@@ -1,0 +1,22 @@
+server {
+	listen 80;
+	return 301 https://$host$request_uri;
+}
+
+server {
+		listen 443 ssl;
+		listen [::]:443 ssl;
+		ssl_certificate /etc/nginx/ssl/cert.csr;
+        ssl_certificate_key /etc/nginx/ssl/cert.key;
+		root   /www;
+		index   index.html index.htm;
+		error_log /var/log/nginx/n_error.log;
+		location /phpmyadmin/ {
+				proxy_pass http://192.168.99.100:5000/;
+				proxy_set_header X-Forwarded-Proto $scheme;
+				proxy_redirect  /index.php  /phpmyadmin/index.php;
+		}
+		location / {
+			try_files $uri $uri/ =404;
+		}
+}

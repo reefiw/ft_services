@@ -9,6 +9,7 @@ RUN		apk add nginx supervisor lighttpd php-fpm php7-common php7-session php7-ico
 RUN mkdir -p /var/www/
 COPY srcs/wordpress-5.7-ru_RU.tar.gz .
 RUN tar -z -x -v -f ./wordpress-5.7-ru_RU.tar.gz
+RUN rm -f ./wordpress-5.7-ru_RU.tar.gz
 RUN mkdir -p /var/www/
 RUN mv ./wordpress /var/www/
 COPY srcs/wp-config-sample.php /var/www/wordpress/wp-config.php

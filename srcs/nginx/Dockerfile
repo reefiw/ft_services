@@ -8,7 +8,7 @@ COPY srcs/supervisor.conf /etc/supervisord.conf
 
 RUN mkdir etc/nginx/ssl
 RUN mkdir -p /run/nginx
-
+COPY srcs/index.htm /var/www/index.htm
 RUN mkdir /scripts/
 COPY srcs/start.sh /scripts/start.sh
 RUN chmod 777 /scripts/start.sh

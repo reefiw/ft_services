@@ -8,9 +8,12 @@ server {
 		listen [::]:443 ssl;
 		ssl_certificate /etc/nginx/ssl/cert.csr;
         ssl_certificate_key /etc/nginx/ssl/cert.key;
-		root   /www;
-		index   index.html index.htm;
+		root   /var/www;
+		index  index.htm;
 		error_log /var/log/nginx/n_error.log;
+		location /wordpress {
+			return 307 http://192.168.99.100:5050;
+		}
 		location /phpmyadmin/ {
 				proxy_pass http://192.168.99.100:5000/;
 				proxy_set_header X-Forwarded-Proto $scheme;

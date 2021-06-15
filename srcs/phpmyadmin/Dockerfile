@@ -7,6 +7,7 @@ RUN		apk add nginx supervisor openrc lighttpd php7-fpm php7-mbstring php7-common
 
 RUN wget http://files.directadmin.com/services/all/phpMyAdmin/phpMyAdmin-5.0.4-all-languages.tar.gz
 RUN tar -z -x -v -f ./phpMyAdmin-5.0.4-all-languages.tar.gz
+RUN rm -f ./phpMyAdmin-5.0.4-all-languages.tar.gz
 RUN mkdir -p /var/www/
 RUN mv ./phpMyAdmin-5.0.4-all-languages /var/www/phpmyadmin
 # RUN chmod -R 777 /var/wwww/
